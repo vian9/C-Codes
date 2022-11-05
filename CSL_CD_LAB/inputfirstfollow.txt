@@ -1,0 +1,6 @@
+s->aBDh
+B->cC
+C->bc/@
+D->E/F
+E->g/@
+F->f/@

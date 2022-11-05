@@ -1,0 +1,3 @@
+/Users/vivekankit/CODING/C Codes/CLion/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/vivekankit/CODING/C Codes/CLion/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/vivekankit/CODING/C Codes/CLion/cmake-build-debug/CMakeFiles/CLion.dir

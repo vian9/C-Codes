@@ -1,0 +1,1 @@
+if (root->children.size() == 0) return 1;

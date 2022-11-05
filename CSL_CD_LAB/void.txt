@@ -1,0 +1,6 @@
+void main(){
+    int a = 198;
+    string b = "Vivek Ankit";
+    string c = "CSE";
+    long int mobile = 9262340696;
+}
