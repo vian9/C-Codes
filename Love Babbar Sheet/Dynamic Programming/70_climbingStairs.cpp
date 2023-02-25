@@ -6,7 +6,7 @@
 using namespace std;
 #define ll long long int
 
-// DP - O(1) Space
+// DP - O(1) Space....Bottom Up Approach....Iterative
 int climbStairs(int n)
 {
     if (n == 1)
@@ -24,7 +24,7 @@ int climbStairs(int n)
     return prev2;
 }
 
-// DP - Space O(n)
+// DP - Space O(n)...Bottom up Approach...Iterative
 int climbStairs(int n)
 {
     vector<int> dp(n + 1, 0);
@@ -39,7 +39,7 @@ int climbStairs(int n)
     return dp[n];
 }
 
-// Recursive - TLE
+// Recursive - TLE...Top Down Approach...Recursive
 int climbStairs(int n)
 {
     if (n <= 1)
@@ -50,7 +50,7 @@ int climbStairs(int n)
     return climbStairs(n - 1) + climbStairs(n - 2);
 }
 
-// Memoisation
+// Memoisation....Top Down Approach...Recursive
 int climbStairs(int n)
 {
     // 0 to n save krna h toh size will be n+1

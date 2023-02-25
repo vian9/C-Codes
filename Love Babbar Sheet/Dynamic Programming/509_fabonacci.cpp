@@ -17,9 +17,10 @@ int fibo_1(int n)
     int a = fibo_1(n - 1);
     int b = fibo_1(n - 2);
     return a + b;
+    // return fibo_1(n - 1) + fibo_1(n - 2);
 }
 
-// Memoisation
+// Memoisation ... Top Down Approach
 int fiboHelper(int n, int *ans)
 {
     // Base Case
@@ -35,6 +36,7 @@ int fiboHelper(int n, int *ans)
 
     ans[n] = a + b;
     return ans[n];
+    // return ans[n] = fiboHelper(n-1, dp) + fiobHelper(n-2, dp);
 }
 
 int fibo_2(int n)
@@ -47,7 +49,7 @@ int fibo_2(int n)
     return fiboHelper(n, ans);
 }
 
-// Dynamic Programming - O(n) - Time....O(n) - Space
+// Dynamic Programming - O(n) - Time....O(n) - Space....Bottom Up Approach
 int fibo_3(int n)
 {
     vector<int> ans(n);

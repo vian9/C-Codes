@@ -1,13 +1,20 @@
- int j = 0;
-    for (int i = 0; i < s.length() & i < t.length(); i++)
+vector<string> ans;
+    for (int i = 0; i < s.length(); i++)
     {
-        if (s[j] == t[i])
+        for (int j = i; j < s.length(); j++)
         {
-            j++;
+            if (s[j] == ' ')
+            {
+                string sbt = s.substr(i, j - i);
+                ans.push_back(sbt);
+                i = j;
+            }
         }
     }
-    if (j == s.length())
+    string final;
+    for (int i = ans.size(); i >= 0; i--)
     {
-        return true;
+        final += ans[i];
+        final += ' ';
     }
-    return false;
+    return final;

@@ -20,6 +20,30 @@ int countOdds(int low, int high)
     }
 }
 
+int countOdds(int low, int high)
+{
+    // 6 to 10...10 - 6 = 4 / 2 = 2
+    // 7 to 19....12 => 12/2 + 1
+    // 7 to 10....3 = 3/2 + 1
+    // 8 to 11....11 - 8 = 3 => 3/2 + 1
+
+    bool lowEven = false;
+    bool highEven = false;
+    if (low % 2 == 0)
+        lowEven = true;
+    if (high % 2 == 0)
+        highEven = true;
+    int diff = high - low;
+    if (low == true && high == true)
+    {
+        return diff / 2;
+    }
+    else
+    {
+        return diff / 2 + 1;
+    }
+}
+
 int main()
 {
 
