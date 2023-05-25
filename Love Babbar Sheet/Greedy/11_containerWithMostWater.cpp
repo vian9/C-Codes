@@ -1,6 +1,6 @@
 // Link : https://leetcode.com/problems/container-with-most-water/
 // Time Complexity : O(n)
-// Approach-> 2 Pointer with Greedy
+// Approach-> 2 Pointer with Greedy move kro heights and update max area
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -27,6 +27,33 @@ int maxArea(vector<int> &height)
     }
 
     return maxAreaPos;
+}
+
+int maxArea(vector<int> &height)
+{
+    // Jo max lgega lene ki kosis krenge and move krdenge
+    // From reference max rain water prblm but we don't need to know all issliye no need of vector
+    int n = height.size();
+    int maxi = 0;
+    int left = 0;
+    int right = n - 1;
+    while (left < right)
+    {
+        int ht = min(height[left], height[right]);
+        int len = right - left;
+        // area ko update krrha hu
+        maxi = max(maxi, ht * len);
+        // and ab iterate krrha hu
+        if (height[left] > height[right])
+        {
+            right--;
+        }
+        else
+        {
+            left++;
+        }
+    }
+    return maxi;
 }
 
 int main()

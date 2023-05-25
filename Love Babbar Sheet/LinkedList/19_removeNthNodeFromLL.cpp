@@ -52,6 +52,41 @@ ListNode *removeNthFromEnd(ListNode *head, int n)
     return head;
 }
 
+ListNode *removeNthFromEnd(ListNode *head, int n)
+{
+    if (head == nullptr)
+        return head;
+    int count = 0;
+    ListNode *slow = head;
+    while (slow != nullptr)
+    {
+        count++;
+        slow = slow->next;
+    }
+    cout << count;
+    count = count - n;
+    if (count == 0)
+    {
+        if (head->next != nullptr)
+        {
+            return head->next;
+        }
+        else
+        {
+            return nullptr;
+        }
+    }
+    // Jbtk 1 pr na pahuche
+    slow = head;
+    while (count > 1)
+    {
+        slow = slow->next;
+        count--;
+    }
+    slow->next = slow->next->next;
+    return head;
+}
+
 int main()
 {
 

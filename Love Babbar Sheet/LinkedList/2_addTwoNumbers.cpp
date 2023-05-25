@@ -15,6 +15,72 @@ struct ListNode
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
+// Optimised code - not using extra space
+// Dono nodes m modify krrha and tail ko move krdia
+ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
+{
+    ListNode *temp1 = l1;
+    ListNode *temp2 = l2;
+    int carry = 0;
+    ListNode *tail = temp1;
+    // temp1 and temp2 k nodes m update krrhe
+    while (temp1 != nullptr && temp2 != nullptr)
+    {
+        int sum = temp1->val + temp2->val + carry;
+        carry = 0;
+        if (sum > 9)
+        {
+            sum = sum - 10;
+            carry = 1;
+        }
+        temp1->val = sum;
+        temp2->val = sum;
+        tail = temp1;
+        temp1 = temp1->next;
+        temp2 = temp2->next;
+    }
+    bool flag = false;
+    // ab flag se pta kr skte temp1 h ya temp2
+    while (temp1 != nullptr)
+    {
+        int sum = temp1->val + carry;
+        carry = 0;
+        if (sum > 9)
+        {
+            sum = sum - 10;
+            carry = 1;
+        }
+        temp1->val = sum;
+        tail = temp1;
+        temp1 = temp1->next;
+    }
+    while (temp2 != nullptr)
+    {
+        int sum = temp2->val + carry;
+        carry = 0;
+        if (sum > 9)
+        {
+            sum = sum - 10;
+            carry = 1;
+        }
+        temp2->val = sum;
+        tail = temp2;
+        temp2 = temp2->next;
+        flag = true;
+    }
+    if (carry == 1)
+    {
+        ListNode *newNode = new ListNode(1);
+        tail->next = newNode;
+        newNode->next = nullptr;
+    }
+    // ab usse m modified h daldo
+    if (flag)
+        return l2;
+    else
+        return l1;
+}
+
 ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
 {
     ListNode *temp1 = l1;

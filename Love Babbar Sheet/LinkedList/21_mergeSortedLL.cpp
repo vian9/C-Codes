@@ -16,6 +16,70 @@ struct ListNode
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
+// Solution 2-> 7ms.....koi new node nhi bnarhe bas purana LL ko arrange krrhe
+ListNode *mergeTwoLists(ListNode *list1, ListNode *list2)
+{
+    // jab dono me se koi ek LL Null ho, agar dono me ek bhi element hai to wo bhi compare krke return kr dega
+    ListNode *h1 = list1;
+    ListNode *h2 = list2;
+    ListNode *finalHead = NULL;
+    ListNode *finalTail = NULL;
+    if (list1 == NULL)
+    {
+        return list2;
+    }
+    if (list2 == NULL)
+    {
+        return list1;
+    }
+    if (h1->val > h2->val)
+    {
+        finalHead = h2;
+        finalTail = h2;
+        // Update nhi krenge to h2 phir se finalHead phir se whi node ko compare krke add krega
+        // but ye to ek obj h node with an specific address to 2 baar add kaise hoga to aage run nhi krega
+        // indirectly mtlb yhi h isse hum aage jab phir se compare krte while loop m and finalTail m dalte to khud ko hi point krne bolte
+        h2 = h2->next;
+    }
+    else
+    {
+        finalHead = h1;
+        finalTail = h1;
+        h1 = h1->next;
+    }
+
+    while (h1 != NULL && h2 != NULL)
+    // dono condition satisfy krna chahiye-mtlb tb tk chlega jbtk koi ek LL exhaust na ho jaye
+    {
+        if (h1->val > h2->val)
+        {
+            finalTail->next = h2;
+            finalTail = finalTail->next;
+            h2 = h2->next;
+        }
+        else
+        {
+            finalTail->next = h1;
+            finalTail = finalTail->next;
+            h1 = h1->next;
+        }
+    }
+
+    if (h1 != NULL)
+    {
+        // yhan while loop bhi laga kr kr skte thay but jrurt nhi tha wo bas time complexity badhata
+        // since aage ka LL already connected hai to bas finalTail se head 1 ko jorr dia pura final LL aa jayega
+        finalTail->next = h1;
+    }
+
+    if (h2 != NULL)
+    {
+        finalTail->next = h2;
+    }
+
+    return finalHead;
+}
+
 // Solution 1 -> 14ms.....new node bnakr daalrhe
 ListNode *mergeTwoLists(ListNode *list1, ListNode *list2)
 {
@@ -101,70 +165,6 @@ ListNode *mergeTwoLists(ListNode *list1, ListNode *list2)
     }
 
     return head3;
-}
-
-// Solution 2-> 7ms.....koi new node nhi bnarhe bas purana LL ko arrange krrhe
-ListNode *mergeTwoLists(ListNode *list1, ListNode *list2)
-{
-    // jab dono me se koi ek LL Null ho, agar dono me ek bhi element hai to wo bhi compare krke return kr dega
-    ListNode *h1 = list1;
-    ListNode *h2 = list2;
-    ListNode *finalHead = NULL;
-    ListNode *finalTail = NULL;
-    if (list1 == NULL)
-    {
-        return list2;
-    }
-    if (list2 == NULL)
-    {
-        return list1;
-    }
-    if (h1->val > h2->val)
-    {
-        finalHead = h2;
-        finalTail = h2;
-        // Update nhi krenge to h2 phir se finalHead phir se whi node ko compare krke add krega
-        // but ye to ek obj h node with an specific address to 2 baar add kaise hoga to aage run nhi krega
-        // indirectly mtlb yhi h isse hum aage jab phir se compare krte while loop m and finalTail m dalte to khud ko hi point krne bolte
-        h2 = h2->next;
-    }
-    else
-    {
-        finalHead = h1;
-        finalTail = h1;
-        h1 = h1->next;
-    }
-
-    while (h1 != NULL && h2 != NULL)
-    // dono condition satisfy krna chahiye-mtlb tb tk chlega jbtk koi ek LL exhaust na ho jaye
-    {
-        if (h1->val > h2->val)
-        {
-            finalTail->next = h2;
-            finalTail = finalTail->next;
-            h2 = h2->next;
-        }
-        else
-        {
-            finalTail->next = h1;
-            finalTail = finalTail->next;
-            h1 = h1->next;
-        }
-    }
-
-    if (h1 != NULL)
-    {
-        // yhan while loop bhi laga kr kr skte thay but jrurt nhi tha wo bas time complexity badhata
-        // since aage ka LL already connected hai to bas finalTail se head 1 ko jorr dia pura final LL aa jayega
-        finalTail->next = h1;
-    }
-
-    if (h2 != NULL)
-    {
-        finalTail->next = h2;
-    }
-
-    return finalHead;
 }
 
 int main()

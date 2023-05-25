@@ -1,6 +1,6 @@
 // Link : https://leetcode.com/problems/maximum-subarray/
 // Time Complexity : O(n)
-// Approach->
+// Approach-> Kadane's Algo
 
 #include <bits/stdc++.h>
 using namespace std;

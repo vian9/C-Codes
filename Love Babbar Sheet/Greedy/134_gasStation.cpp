@@ -1,6 +1,6 @@
 // Link : https://leetcode.com/problems/gas-station/
 // Time Complexity : O(n)
-// Approach->
+// Approach-> Jha zero hoga wha pr phir se index update krdo
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -27,6 +27,7 @@ int canCompleteCircuit(vector<int> &gas, vector<int> &cost)
             currentGas = 0;
         }
     }
+    // Kbhi run nhi hoga agar cost jada h
     if (totalGas < totalCost)
         return -1;
     else

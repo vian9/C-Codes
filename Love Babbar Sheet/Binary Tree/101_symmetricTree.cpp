@@ -8,6 +8,31 @@
 using namespace std;
 #define ll long long int
 
+// Less code
+bool checkBool(TreeNode *root1, TreeNode *root2)
+{
+    // Agar dono null to return
+    if ((root1 == nullptr && root2 == nullptr))
+        return true;
+    // koi bhi ek null or val not equal to return false
+    else if ((root1 != nullptr && root2 == nullptr) || (root1 == nullptr && root2 != nullptr) || (root1->val != root2->val))
+        return false;
+
+    // Ab left nd right nd vice versa call
+    return ((checkBool(root1->left, root2->right) == true) & (checkBool(root1->right, root2->left) == true));
+    // Ye dono bhi true h
+    //  return ((checkBool(root1->left, root2->right)) & (checkBool(root1->right, root2->left)));
+    //  return ((checkBool(root1->left, root2->right)) && (checkBool(root1->right, root2->left)));
+}
+
+bool isSymmetric(TreeNode *root)
+{
+    if (root == nullptr)
+        return true;
+
+    return (checkBool(root->left, root->right));
+}
+
 // to check if two BT are same
 bool isSameTree(TreeNode *p, TreeNode *q)
 {

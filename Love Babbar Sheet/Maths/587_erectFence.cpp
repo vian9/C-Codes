@@ -8,7 +8,6 @@ using namespace std;
 
 vector<vector<int>> outerTrees(vector<vector<int>> &trees)
 {
-    
 }
 
 int main()

@@ -20,7 +20,7 @@ void sortColors(vector<int> &nums)
         // agar mid aagya 0 toh start and mid ko swap and start and mid aage
         if (nums[mid] == 0)
         {
-            swap(nums[start], nums[end]);
+            swap(nums[start], nums[mid]);
             start += 1;
             mid++;
         }

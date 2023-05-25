@@ -27,6 +27,15 @@ void deleteNode(ListNode *node)
     }
 }
 
+void deleteNode(ListNode *node)
+{
+    // Val wo node m daldia and uske next ko change krdia hogya dlt
+    ListNode *nex = node->next;
+    int val = node->next->val;
+    node->val = val;
+    node->next = nex->next;
+}
+
 int main()
 {
 

@@ -9,6 +9,34 @@
 using namespace std;
 #define ll long long int
 
+// optimal...O(n) time
+int lengthOfLongestSubstring(string s)
+{
+    unordered_map<char, int> mp;
+    int len = 0;
+    int count = 0;
+    int last = -1;
+    for (int i = 0; i < s.length(); i++)
+    {
+        char curr = s[i];
+        // Last bs maintain krrha and agar usse bda h nd repeat horha tbhi consider kro
+        if (mp.count(s[i]) > 0 && mp[s[i]] > last)
+        {
+            len = max(len, count);
+            last = mp[s[i]];
+            count = i - mp[s[i]];
+            mp[s[i]] = i;
+        }
+        else
+        {
+            mp[s[i]] = i;
+            count++;
+        }
+    }
+    len = max(len, count);
+    return len;
+}
+
 int lengthOfLongestSubstring(string s)
 {
     unordered_map<char, int> val;

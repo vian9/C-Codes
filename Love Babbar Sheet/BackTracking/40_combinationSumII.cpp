@@ -20,6 +20,7 @@ void combination(vector<int> &candidates, int target, int ind, vector<vector<int
     // pick kro nd uske next wla same h toh don't pick it nd uske baad ab call krdo savkr
     for (int i = ind; i < n; i++)
     {
+        // ye continue issliye hai ki phir se whi combination nhi nikal de issliye wo same element aarha to skip
         if (i > ind && candidates[i] == candidates[i - 1])
             continue;
         if (candidates[i] > target)
