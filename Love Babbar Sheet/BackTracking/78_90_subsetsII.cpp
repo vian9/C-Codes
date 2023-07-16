@@ -13,7 +13,7 @@ void subsetWithDupes(vector<int> &nums, vector<vector<int>> &ans, vector<int> &d
 {
     ans.push_back(ds);
 
-    // ek se start kiya and uske saare different possibility pr jayega
+    // ek se start kiya and uske saare different possibility pr jayega...ye loop is to pick the start
     for (int i = ind; i < N; i++)
     {
         // This line is to skip the duplicate subsets

@@ -23,7 +23,7 @@ void combination(vector<int> &candidates, int target, int ind, vector<vector<int
         return;
     }
 
-    // pick kro push krke nd call itself
+    // pick kro push krke nd call itself...isme kuch aisa h nhi ki ek hi baar pick krna h to loop k jrurt nhi h ki kisko first rkhe
     if (target >= candidates[ind])
     {
         ds.push_back(candidates[ind]);

@@ -85,6 +85,12 @@
         "typeindex": "cpp",
         "utility": "cpp",
         "valarray": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "__hash_table": "cpp",
+        "__split_buffer": "cpp",
+        "__tree": "cpp",
+        "queue": "cpp",
+        "stack": "cpp",
+        "stacktrace": "cpp"
     }
 }

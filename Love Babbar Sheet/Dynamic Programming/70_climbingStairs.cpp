@@ -6,16 +6,20 @@
 using namespace std;
 #define ll long long int
 
+// n steps tk hum kitna ways m pahuch skte h....0 k liye 0 steps hi rhega
+// standing at 0 there is only 1 way
+
 // DP - O(1) Space....Bottom Up Approach....Iterative
 int climbStairs(int n)
 {
-    if (n == 1)
-        return 1;
-    if (n == 2)
-        return 2;
+    // if (n == 1)
+    //     return 1;
+    // if (n == 2)
+    //     return 2;
+    // for zero and 1 stairs
     int prev = 1;
-    int prev2 = 2;
-    for (int i = 3; i < n + 1; i++)
+    int prev2 = 1;
+    for (int i = 2; i < n + 1; i++)
     {
         int curr = prev + prev2;
         prev = prev2;
@@ -28,11 +32,9 @@ int climbStairs(int n)
 int climbStairs(int n)
 {
     vector<int> dp(n + 1, 0);
-    dp[0] = 0;
+    dp[0] = 1;
     dp[1] = 1;
-    if (n > 1)
-        dp[2] = 2;
-    for (int i = 3; i < n + 1; i++)
+    for (int i = 2; i < n + 1; i++)
     {
         dp[i] = dp[i - 2] + dp[i - 2];
     }
@@ -63,6 +65,8 @@ int memHelper(vector<int> &dp, int n)
     // Base Case
     if (n <= 1)
     {
+        // dp[n] = 1;
+        // return dp[n];
         return 1;
     }
     // Check if mem exists

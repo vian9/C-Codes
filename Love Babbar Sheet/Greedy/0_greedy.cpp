@@ -9,3 +9,7 @@
 
 // Greedy - If you get optimal solution take it now, don't think much. (chahe future me koi optimal mile ya na mile, jo abhi mil rha lete jao)
 // DP - Hey, if you get optimal solution, don't take it, first check if you are getting more optimal soln or not in coming path. ( aur ydi nhi milta hai to backtrack kro aur dusra path pakdo)
+
+// Always try for greedy and nhi horha h to recursion se dekho and hua to DP lgao
+// Dp recursion m tb lgega jb overlapping sub problems dekhe
+// Subproblems dekhrha h to recursion lgao and agar tree bnao overlapping h to DP lgao

@@ -113,6 +113,7 @@ int rob(vector<int> &nums)
     return max(a, b);
 }
 
+// n-1 is startIndex and 0 is endIndex waise jaarhe h
 int robHouse(vector<int> &nums, vector<int> &ans, int startIndex, int endIndex)
 {
     if (startIndex < 0 || endIndex > startIndex)
@@ -131,9 +132,9 @@ int robHouse(vector<int> &nums, vector<int> &ans, int startIndex, int endIndex)
 }
 
 // Recursive- Exponential.....kya kia ki hume pick or not pick krna h aur usme agar pick toh n-2 ko jayega and not pick par n-1 par
-int robHouse(vector<int> &nums, int startIndexx)
+int robHouse(vector<int> &nums, int startIndexx, int endIndexx)
 {
-    if (startIndexx < 0 || || endIndexx > startIndexx)
+    if (startIndexx < 0 || endIndexx > startIndexx)
     {
         return 0;
     }
