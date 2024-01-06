@@ -27,6 +27,8 @@ bool isPathPos(TreeNode *root, int targetSum)
     return (isPathPos(root->left, targetSum - root->val) || isPathPos(root->right, targetSum - root->val));
 }
 
+// k.shailaja56030710@gmail.com
+
 bool hasPathSum(TreeNode *root, int targetSum)
 {
     if (root == nullptr)

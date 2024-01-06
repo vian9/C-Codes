@@ -16,7 +16,7 @@ bool canJump(vector<int> &nums)
     int maxDist = nums[0];
     for (int i = 1; i < n; i++)
     {
-        // Agar max dist se i jada aage badh gya mtlb wahan tk pahuch nhi skte
+        // Agar max dist se i jada aage badh gya mtlb wahan tk pahuch nhi skte toh discontinued
         if (i > maxDist)
             return false;
         // Update max dist

@@ -38,7 +38,7 @@ int minimumEnergy(vector<int> &height, int n)
     return helper(height, n);
 }
 
-// Tabulation - Bottom Up Approach
+// Tabulation - Bottom Up Approach....for Frog Jump with 4 distance
 int helper(vector<int> &height, vector<int> &dp, int n, int k)
 {
     // for dp[0] = 0 rhega as 0 and 1 k liye 1 hi possible step h

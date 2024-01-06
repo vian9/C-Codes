@@ -11,6 +11,44 @@ using namespace std;
 
 vector<vector<int>> zigzagLevelOrder(TreeNode *root)
 {
+    if (root == nullptr)
+        return {};
+    vector<vector<int>> ans;
+    bool isOrder = true;
+    queue<TreeNode *> qt;
+    qt.push(root);
+    int k = 0;
+    while (!qt.empty())
+    {
+        k = qt.size();
+        vector<int> temp;
+        for (int i = 0; i < k; i++)
+        {
+            TreeNode *front = qt.front();
+            qt.pop();
+            if (front != nullptr)
+            {
+                temp.push_back(front->val);
+                if (front->left)
+                    qt.push(front->left);
+                if (front->right)
+                    qt.push(front->right);
+            }
+        }
+        if (isOrder)
+            ans.push_back(temp);
+        else
+        {
+            reverse(temp.begin(), temp.end());
+            ans.push_back(temp);
+        }
+        isOrder = !isOrder;
+    }
+    return ans;
+}
+
+vector<vector<int>> zigzagLevelOrder(TreeNode *root)
+{
     // Level order traversal krdo using BFS nd then alternate ko reverse krdo
     vector<vector<int>> ans;
     if (!root)

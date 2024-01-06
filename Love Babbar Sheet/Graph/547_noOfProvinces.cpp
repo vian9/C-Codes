@@ -7,6 +7,81 @@
 using namespace std;
 #define ll long long int
 
+// Using Disjoint set
+class DisjointSet
+{
+    vector<int> parents;
+    vector<int> size;
+
+public:
+    DisjointSet(int n)
+    {
+        parents.resize(n + 1);
+        size.resize(n + 1, 0);
+
+        for (int i = 0; i <= n; i++)
+        {
+            parents[i] = i;
+        }
+    }
+
+    // Path Compression
+    int findParents(int u)
+    {
+        if (parents[u] == u)
+            return u;
+        return parents[u] = findParents(parents[u]);
+    }
+
+    // Union by size
+    void unionBySize(int u, int v)
+    {
+        int ulParU = findParents(u);
+        int ulParV = findParents(v);
+
+        if (size[ulParU] < size[ulParV])
+        {
+            parents[ulParU] = ulParV;
+            size[ulParV] += size[ulParU];
+        }
+        else
+        {
+            parents[ulParV] = ulParU;
+            size[ulParU] += size[ulParV];
+        }
+    }
+};
+
+int findCircleNum(vector<vector<int>> &isConnected)
+{
+    int n = isConnected.size();
+    DisjointSet ds(n);
+
+    // Linking the components
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (isConnected[i][j] == 1)
+            {
+                ds.unionBySize(i, j);
+            }
+        }
+    }
+
+    // Finding total components
+    int count = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (ds.findParents(i) == i)
+        {
+            count++;
+        }
+    }
+
+    return count;
+}
+
 // DFS - Mark kro and traversal krte jao
 void dfs(int n, vector<vector<int>> &isConnected, vector<int> &visited, int root)
 {

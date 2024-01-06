@@ -7,6 +7,7 @@ using namespace std;
 #define ll long long int
 
 // Topo sort by bfs - Khann's Algo
+// by using queue and indegree....0 indegree in queue dalo and then pop krke bulao and usse related nodes k indegree -1 kro
 vector<int> topoSort(int V, vector<int> adj[])
 {
     vector<int> vis(V, 0);

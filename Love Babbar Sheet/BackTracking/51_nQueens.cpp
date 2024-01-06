@@ -99,7 +99,7 @@ void myCombo(vector<vector<string>> &ans, vector<string> &ds, int col, int n)
         return;
     }
 
-    // row is index....now move from 0 to n-1 col
+    // row is index....now move from 0 to n-1 for same col
     for (int row = 0; row < n; row++)
     {
         bool check = myCheck(ds, col, row, n);

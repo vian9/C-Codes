@@ -20,6 +20,32 @@ vector<int> preorderTraversal(TreeNode *root)
     return v;
 }
 
+// Queue can't be used bcoz wo level order hoga anadar depth m ni jaa skta
+// Iterative dfs- using stack
+vector<int> preorderTraversal(TreeNode *root)
+{
+    vector<int> ans;
+    stack<TreeNode *> st;
+
+    if (root)
+        st.push(root);
+
+    while (!st.empty())
+    {
+        TreeNode *front = st.top();
+        st.pop();
+
+        // Since stack is LIFO so phle right phir left push kro
+        if (front != nullptr)
+        {
+            ans.push_back(front->val);
+            st.push(front->right);
+            st.push(front->left);
+        }
+    }
+    return ans;
+}
+
 int main()
 {
 

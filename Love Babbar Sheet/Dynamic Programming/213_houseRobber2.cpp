@@ -89,7 +89,7 @@ int rob(vector<int> &nums)
     for (int i = 1; i < nums.size(); i++)
     {
         int a = nums[i];
-        if (i > 1)
+        if (i > 2)
             a += ans2[i - 2];
         int b = 0 + ans2[i - 1];
         ans[i] = max(a, b);

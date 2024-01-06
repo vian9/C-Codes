@@ -9,6 +9,7 @@
 using namespace std;
 #define ll long long int
 
+// Much easy and optimal
 vector<vector<int>> insert(vector<vector<int>> &intervals, vector<int> &newInterval)
 {
     vector<vector<int>> ans;
